@@ -1,0 +1,7 @@
+{
+    "name": "TaskMaster",
+    "dockerComposeFile": "./docker-compose.yml",
+    "service": "web",  // 使用するサービス名
+    "workspaceFolder": "/usr/src/app",
+    "postCreateCommand": "npm install"
+}

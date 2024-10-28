@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: .devcontainer/dockerfile
+    container_name: web
+    ports:
+    - "80:80"
+    volumes:
+      - web-data:/var/lib/web
+  db:
+    image: mysql:8.0.33
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=taskMaster
+      - MYSQL_DATABASE=taskMaster
+      - MYSQL_USER=taskMaster
+      - MYSQL_PASSWORD=taskMaster
+    ports:
+      - '3306:3306'
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  web-data:
+  db-data:
